@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>CanPhone 隐私政策</h1>
-<p class="date">生效日期：2026 年 7 月 28 日 · Effective July 28, 2026</p>
+<p class="date">生效日期：2026 年 7 月 29 日 · Effective July 29, 2026</p>
 
 <p><strong>一句话：CanPhone 没有服务器，你的一切数据都只在你的设备上。</strong><br>
 <span class="en">In one sentence: CanPhone has no servers. Everything stays on your device.</span></p>
@@ -35,11 +35,30 @@ The developer never receives them and has no way to read them. Deleting the app 
 provider <strong>you chose</strong>. It never passes through any developer-operated server — none exists.</p>
 
 <h2>网络连接</h2>
-<p>App 只会连接一个地方：你自己配置的模型接口。没有数据统计、没有崩溃上报、
-没有广告、没有推送服务、没有更新检查。图片文字识别（OCR）和语音朗读（TTS）都在设备本地完成。</p>
-<p class="en">The app connects to exactly one place: the model endpoint you configured.
-No analytics, no crash reporting, no ads, no push service, no update checks.
-OCR and text-to-speech run entirely on-device.</p>
+<p>App 只会连接你自己配置的接口 —— 聊天、以及（可选的）生图、记忆检索、语音朗读。
+没有数据统计、没有崩溃上报、没有广告、没有推送服务、没有更新检查。
+图片文字识别（OCR）与<strong>你说话的语音转文字</strong>都在设备本地完成，不联网。
+语音朗读默认用系统自带的声音（本地）；只有当你主动填写了第三方语音服务，
+要朗读的那段文字才会发给你选的那家。</p>
+<p class="en">The app connects only to endpoints you configured yourself — chat, and optionally
+image generation, memory retrieval and speech. No analytics, no crash reporting, no ads,
+no push service, no update checks. OCR and <strong>speech-to-text of your own voice</strong>
+run entirely on-device. Text-to-speech uses the system voice by default; only if you fill in
+a third-party speech service does the text to be spoken get sent to the provider you chose.</p>
+
+<h2>App 会请求的权限</h2>
+<p><strong>麦克风</strong>：只在你按住「说话」录语音条时使用。录音文件保存在你的设备上，
+不会上传到任何地方 —— 包括开发者、也包括你配置的模型服务商。</p>
+<p><strong>语音识别</strong>：把你说的话转成文字发给角色。这一步调用的是 iOS 的
+<em>设备端</em>识别（<code>requiresOnDeviceRecognition</code>），音频不离开这台手机；
+你的设备如果不支持离线识别，App 会明确告诉你并退回用键盘输入，绝不改走云端识别。</p>
+<p><strong>相册 / 相机</strong>：只在你主动选择图片时打开（导入角色卡、换壁纸、换图标、发照片）。
+App 不会读取你没有选中的任何照片，也不会上传相册内容。</p>
+<p class="en"><strong>Microphone</strong> is used only while you hold to record a voice note;
+the recording stays on your device. <strong>Speech recognition</strong> runs on-device
+(<code>requiresOnDeviceRecognition</code>) — audio never leaves the phone, and if your device
+cannot do it offline the app says so and falls back to typing rather than switching to the cloud.
+<strong>Photos / camera</strong> open only when you pick an image yourself; nothing is uploaded.</p>
 
 <h2>数据收集清单</h2>
 <p>我们收集的数据：<strong>无。</strong>本页面（canphone 官网）为静态页面，仅作产品介绍与支持用途，
